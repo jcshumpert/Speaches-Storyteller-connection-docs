@@ -276,12 +276,12 @@ When prompted for your password, enter the one you created for *Linux*.
 ip addr show eth0
 ```
 
-- Within an elevated command prompt (cmd.exe as administrator)
+- Open another instance of PowerShell as Administrator and run:
 > **Note:** Replace `listenport=**8007**` and `connectport=**8007**` with the port you have in `compose.yaml` which you may have changed
-> Replace `connectaddress=**172.25.48.1**` with the port used for WSL2 (see step 1)
+> (wsl hostname -I) will automatically parse out the ip adddress(es) used by WSL
 
 ```cmd
-netsh interface portproxy add v4tov4 listenport=8007 listenaddress=0.0.0.0 connectport=8007 connectaddress=172.25.48.1
+netsh interface portproxy add v4tov4 listenport=8007 listenaddress=0.0.0.0 connectport=8007 connectaddress=(wsl hostname -I)
 ```
 2. Windows Firewall rules setup
 
