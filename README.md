@@ -71,7 +71,9 @@ notepad "$env:USERPROFILE/.wslconfig"
 ```ini
 [wsl2]
 memory=10GB
-localhostForwarding=true
+#Disabling localhostForwarding to use mirrored mode instead:
+#localhostForwarding=true
+networkingMode=mirrored
 nestedVirtualization=true
 ```
 
