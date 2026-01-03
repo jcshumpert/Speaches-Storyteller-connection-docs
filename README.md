@@ -199,7 +199,7 @@ docker compose version
 ```
 
 ### Network Setup
-> 🚧 **Under construction*: I am not an expert on Docker networking, and this network is not used by the compose files created below. Assistance is requested.
+> 🚧 I don't think this section is needed. I think the container will create it's own docker network on startup. If not, you may need to do these steps.
 
 1. Create a Docker network:
 ```bash
@@ -213,13 +213,6 @@ docker network create speeches-network
 docker network ls
 ```
 
-3. Get WSL IP address (you'll need this later):
-```bash
-# Show IP address
-ip addr show eth0
-```
-
-Note: Remember the IP address starting with 172.* - you'll need it when configuring the Windows firewall to work with Docker
 
 ### 3. Speeches Deployment
 - Create a folder within the WSL enviornment and enter it. For example:
@@ -346,6 +339,8 @@ b. From another device on your network, try accessing:
 > The v1 is required and is how the Speaches API is accessed
 
  **Model Name** `Systran/faster-distil-whisper-large-v3` provides the best results. You may consider changing based on the options in `Speaches Playground` (see above) if there are issues.
+
+ 
 
 2. System testing and verification
 Try transcribing a book. Note: the compression and chapter matching processes will still run on Storyteller, but they do not use as much memory or take as much time as the transcription. Check Task Manager on your PC to get an indication as to whether or not it is working. 
